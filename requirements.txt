@@ -1,0 +1,17 @@
+# Data Science y Machine Learning
+scikit-learn~=1.6.1
+pandas~=2.2.3
+joblib~=1.5.0
+numpy~=2.2.6
+
+# MLOps
+mlflow~=2.22.0
+mlflow-skinny~=2.22.0
+
+# La Conexión a la Nube (Azure)
+azure-storage-blob
+azure-identity
+
+# El Control de Calidad (Testing)
+pytest~=8.3.5
+pytest-cov~=4.0.0
