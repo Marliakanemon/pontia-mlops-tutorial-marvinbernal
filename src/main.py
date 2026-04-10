@@ -1,3 +1,4 @@
+import os
 import logging
 import time
 import platform
@@ -24,8 +25,10 @@ logger=logging.getLogger("adult-income")
 run_name = f"run-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
 
 # MLflow config
-MLFLOW_URI = "http://localhost:5000"
-EXPERIMENT_NAME = "adult-income"
+# MLFLOW_URI = "http://57.151.65.76:5000"
+# MLFLOW_URI = "file:./mlruns"
+MLFLOW_URI = os.getenv("MLFLOW_URL", "http://57.151.65.76:5000")
+EXPERIMENT_NAME = "marvin-adult-income"
 
 mlflow.set_tracking_uri(MLFLOW_URI)
 mlflow.set_experiment(EXPERIMENT_NAME)
