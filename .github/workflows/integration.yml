@@ -46,3 +46,16 @@ jobs:
               repo: context.repo.repo,
               body: `### 🧪 Test Results with Coverage\n\n\`\`\`\n${truncated}\n\`\`\``
             });
+
+      - name: Run tests
+      # Pasamos las credenciales a la máquina virtual
+        env:
+        # 🔐 El único Secreto (Caja fuerte)
+         AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        
+        # ⚙️ Las Variables (Configuración abierta)
+         MLFLOW_URL: ${{ vars.MLFLOW_URL }}
+         EXPERIMENT_NAME: ${{ vars.EXPERIMENT_NAME }}
+         MODEL_NAME: ${{ vars.MODEL_NAME }}
+        run: |
+            pytest      
